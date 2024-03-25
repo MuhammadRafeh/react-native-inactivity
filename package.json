@@ -1,6 +1,6 @@
 {
   "name": "react-native-inactivity",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Component that alerts when the user is inactive (i.e. when the App surface hasn't been touched for X ms)",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -27,6 +27,7 @@
   ],
   "scripts": {
     "example": "yarn workspace react-native-inactivity-example",
+    "start": "yarn workspace react-native-inactivity-example start",
     "test": "jest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
