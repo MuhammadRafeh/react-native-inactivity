@@ -15,7 +15,7 @@ jobs:
       - name: Use Node.js 12
         uses: actions/setup-node@v4
         with:
-          node-version: 21
+          node-version: 21.6.1
           registry-url: https://registry.npmjs.org/
       - run: git config --global user.name "muhammadrafeh"
       - run: git config --global user.email "muhammadrafehatique@gmail.com"
