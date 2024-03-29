@@ -47,6 +47,18 @@ jobs:
       - name: Build package
         run: yarn prepare
 
+  release-library:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      - name: Release package
+        run: yarn release
+
   build-web:
     runs-on: ubuntu-latest
     steps:
