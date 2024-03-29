@@ -42,25 +42,24 @@ export default function InactivityTimer() {
   const [isActive, __] = React.useState(true);
   const [loop, _] = React.useState(true);
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, paddingTop: "20%" }}>
       <ReactNativeInactivity
         isActive={isActive}
         onInactive={() => setInactivityTimeoutCount(inactivityTimeoutCount + 1)}
         timeForInactivity={2000}
         restartTimerOnActivityAfterExpiration={false}
-        loop={loop}
-        style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "grey" }}>
-        <Button title="User Inactivity Area" color={"white"} />
+        loop={loop}>
+        <Button title="User Inactivity Area" color={"black"} />
         <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
-          <Text style={{ fontWeight: "bold", fontSize: 25, color: "white" }}>
-            Timeout Count: {inactivityTimeoutCount}
-          </Text>
+          <Text style={{ color: "black" }}>Timeout Count: {inactivityTimeoutCount}</Text>
         </View>
       </ReactNativeInactivity>
     </View>
   );
 }
 ```
+
+## Props
 
 ```typescript
 interface ReactNativeInactivityProps {
