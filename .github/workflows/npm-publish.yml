@@ -21,6 +21,8 @@ jobs:
       - run: git config --global user.email "muhammadrafehatique@gmail.com"
 
       - run: npm version patch
+      
+      - run: npm install
 
       - run: npm pack
 
