@@ -56,6 +56,12 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
 
+      - name: Setting username
+        run: git config --global user.name "muhammadrafeh"
+
+      - name: Setting email
+        run: git config --global user.email "muhammadrafehatique@gmail.com"
+
       - name: Release package
         run: yarn release
 
