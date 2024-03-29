@@ -22,7 +22,9 @@ jobs:
 
       - run: npm version patch
       
-      - run: npm install
+      - run: npm install --global yarn
+
+      - run: yarn install
 
       - run: npm pack
 
