@@ -1,12 +1,24 @@
 <h1 align="center">react-native-inactivity</h1>
+<p>
+  <a href="https://www.npmjs.com/package/react-native-inactivity">
+    <img alt="Version" src="https://img.shields.io/npm/v/react-native-inactivity.svg?style=flat-square" />
+  </a>
+  <a href="https://github.com/MuhammadRafeh/react-native-inactivity#readme">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
+  </a>
+  <a href="https://github.com/MuhammadRafeh/react-native-inactivity/graphs/commit-activity">
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" target="_blank" />
+  </a>
+  <a href="https://github.com/MuhammadRafeh/react-native-inactivity/blob/master/LICENSE">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" target="_blank" />
+  </a>
+</p>
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger) ![npm](https://img.shields.io/npm/v/react-native-inactivity)
-
-Component that alerts when the user is inactive (i.e. when the App surface hasn't been touched for X ms)
+> React Native component that notifies if the user is not active (i.e. when the app surface hasn't been touched for more than a certain amount of ms).
 
 ## Why this Module?
 
-By utilizing this module, you can activate or deactivate the timer, loop, and access numerous other features. Most importantly, it remains updated.
+By utilizing this module, you can activate or deactivate the timer, loop, and access numerous other features. Most importantly, it remains updated and very easy to use.
 
 ## Installation
 
