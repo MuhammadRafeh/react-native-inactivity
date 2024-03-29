@@ -57,7 +57,7 @@ const ReactNativeInactivity = ({
   style,
 }: ReactNativeInactivityProps) => {
   /*
-   * Using useRef to hold setTimeout. If it's null then it means that the timer is stopped.
+   * Using useRef to hold setTimeout. If it's null then it means that the timer is expired/stopped.
    */
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   /*
@@ -121,6 +121,14 @@ const ReactNativeInactivity = ({
     if (isActive) resetTimer();
     else stopTimer();
   }, [isActive]);
+  /*
+   * Handling if timer is expired and isActive is true and then loop
+   * turns to true then we may need this behaviour to turn onn the timer.
+   */
+  useEffect(() => {
+    if (timerRef.current != null || loop === false || isActive === false) return;
+    resetTimer();
+  }, [loop]);
   /*
    * Performing cleanup on component unmount, cleaning timeout.
    */
