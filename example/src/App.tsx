@@ -6,9 +6,10 @@ import ReactNativeInactivity from "react-native-inactivity";
 const SomeCom = () => {
   const [num, setNum] = React.useState(0);
   React.useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
       setNum(v => v + 1);
     }, 1000);
+    return () => clearInterval(interval);
   }, []);
   return (
     <View>

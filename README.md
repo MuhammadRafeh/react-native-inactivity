@@ -66,12 +66,13 @@ export default function InactivityTimer() {
 interface ReactNativeInactivityProps {
   /**
    * Number of milliseconds after which the view is considered inactive.
+   * If timeForInactivity changes, the timer will be reset.
    * It defaults to `2000`.
    */
   timeForInactivity?: number;
   /**
    * This is used to toggle the timer on or off.
-   * When set to `false`, the timer will be stopped.
+   * When set to `false`, the timer will stop, and the onInactive callback will never be called.
    * When set to `true`, the timer will be reset, restarted,
    * and after expiration, onInactive will be called.
    * It defaults to `true`.
@@ -90,13 +91,15 @@ interface ReactNativeInactivityProps {
    */
   onInactive: () => void;
   /**
-   * If set to false then the timer will not restart
+   * If set to `false` then the timer will not restart automatically
    * after the view is considered inactive.
+   * If the value changes from `false` to `true` and the timer is expired
+   * and isActive is `true`, timer will reset/restart.
    * It defaults to `true`.
    */
   loop?: boolean;
   /**
-   * If set to true, the timer will restart when the user presses the
+   * If set to `true`, the timer will restart when the user presses the
    * ReactNativeInactivity's View after it becomes inactive.
    * It will only work if the `loop` prop is set to `false`.
    * It defaults to `false`.
