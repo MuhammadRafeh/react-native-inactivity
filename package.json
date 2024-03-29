@@ -1,6 +1,6 @@
 {
   "name": "react-native-inactivity",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Component that alerts when the user is inactive (i.e. when the App surface hasn't been touched for X ms)",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -37,8 +37,14 @@
   },
   "keywords": [
     "react-native",
-    "ios",
-    "android"
+    "react-native-inactivity",
+    "user-inactivity",
+    "react-native-user-inactivity",
+    "react-native-inactivity-check",
+    "react-native-inactive",
+    "inactivity",
+    "inactive",
+    "react-native-check-user-inactivity"
   ],
   "repository": {
     "type": "git",
