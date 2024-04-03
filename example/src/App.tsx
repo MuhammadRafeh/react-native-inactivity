@@ -1,68 +1,41 @@
 import * as React from "react";
 
-import { StyleSheet, View, Text, Button } from "react-native";
-import ReactNativeInactivity from "react-native-inactivity";
-
-const SomeCom = () => {
-  const [num, setNum] = React.useState(0);
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setNum(v => v + 1);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
-  return (
-    <View>
-      <Text style={{ fontWeight: "bold", fontSize: 25, color: "white" }}>{num}</Text>
-    </View>
-  );
-};
+import { Button, StyleSheet, Text, View } from "react-native";
+import Scenario1 from "./components/Scenario1";
+import Scenario2 from "./components/Scenario2";
+import Scenario3 from "./components/Scenario3";
+import Scenario4 from "./components/Scenario4";
 
 export default function App() {
-  const [inactivityTimeoutCount, setInactivityTimeoutCount] = React.useState(0);
-  const [isActive, setIsActive] = React.useState(true);
-  const [loop, setLoop] = React.useState(true);
+  const [scenario, setScenario] = React.useState<null | number>(null);
 
+  const goBack = () => setScenario(null);
+
+  if (scenario) {
+    if (scenario === 1) {
+      return <Scenario1 goBack={goBack} />;
+    } else if (scenario === 2) {
+      return <Scenario2 goBack={goBack} />;
+    } else if (scenario === 3) {
+      return <Scenario3 goBack={goBack} />;
+    } else if (scenario === 4) {
+      return <Scenario4 goBack={goBack} />;
+    }
+  }
   return (
     <View style={styles.container}>
       <View style={{ marginBottom: 10 }}>
-        <Text style={{ fontWeight: "bold", fontSize: 20 }}>Enable/Disable</Text>
+        <Text style={{ fontWeight: "bold", fontSize: 20, textAlign: "center" }}>
+          Please test all the Scenarios, all must should work
+        </Text>
       </View>
-      <View style={{ flexDirection: "row", justifyContent: "space-evenly", width: "100%" }}>
-        <View style={{ backgroundColor: isActive ? undefined : "orange" }}>
-          <Button title="Disable Timer" onPress={() => setIsActive(false)} />
+      <View style={{ flex: 1, justifyContent: "center" }}>
+        <View style={styles.buttonsStyle}>
+          <Button title="Scenario 1" onPress={() => setScenario(1)} />
+          <Button title="Scenario 2" onPress={() => setScenario(2)} />
+          <Button title="Scenario 3" onPress={() => setScenario(3)} />
+          <Button title="Scenario 4" onPress={() => setScenario(4)} />
         </View>
-        <View style={{ backgroundColor: !isActive ? undefined : "orange" }}>
-          <Button title="Enable Timer" onPress={() => setIsActive(true)} />
-        </View>
-      </View>
-      <View style={{ marginBottom: 10, marginTop: 10 }}>
-        <Text style={{ fontWeight: "bold", fontSize: 20 }}>Loop</Text>
-      </View>
-      <View style={{ flexDirection: "row", justifyContent: "space-evenly", width: "100%" }}>
-        <View style={{ backgroundColor: loop ? undefined : "orange" }}>
-          <Button title="Disable Loop" onPress={() => setLoop(false)} />
-        </View>
-        <View style={{ backgroundColor: !loop ? undefined : "orange" }}>
-          <Button title="Enable Loop" onPress={() => setLoop(true)} />
-        </View>
-      </View>
-
-      <View style={styles.ReactNativeInactivityContainer}>
-        <ReactNativeInactivity
-          isActive={isActive}
-          onInactive={() => setInactivityTimeoutCount(inactivityTimeoutCount + 1)}
-          timeForInactivity={2000}
-          restartTimerOnActivityAfterExpiration={false}
-          loop={loop}>
-          <Button title="User Inactivity Area" color={"white"} />
-          <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
-            <Text style={{ fontWeight: "bold", fontSize: 25, color: "white" }}>
-              Timeout Count: {inactivityTimeoutCount}
-            </Text>
-          </View>
-          <SomeCom />
-        </ReactNativeInactivity>
       </View>
     </View>
   );
@@ -71,18 +44,12 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
+    paddingTop: 90,
+  },
+  buttonsStyle: {
+    marginHorizontal: 20,
     justifyContent: "center",
-  },
-  ReactNativeInactivityContainer: {
-    height: 300,
-    width: "100%",
-    backgroundColor: "grey",
-    marginTop: 20,
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
+    flexDirection: "row",
+    flexWrap: "wrap",
   },
 });
